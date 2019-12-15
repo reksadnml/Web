@@ -90,10 +90,10 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="bodyspa" class=""><i class="lnr lnr-code"></i> <span>Body Spa</span></a></li>
-						<li><a href="haircut" class=""><i class="lnr lnr-chart-bars"></i> <span>Hair Cut</span></a></li>
-						<li><a href="paketcantik" class=""><i class="lnr lnr-cog"></i> <span>Paket Cantik</span></a></li>
+						<li><a href="" class="active"><span>Dashboard</span></a></li>
+						<li><a href="/bodyspa" class=""></i> <span>Body Spa</span></a></li>
+						<li><a href="haircut" class=""></i> <span>Hair Cut</span></a></li>
+						<li><a href="paketcantik" class=""></i> <span>Paket Cantik</span></a></li>
 					</ul>
 				</nav>
 			</div>
