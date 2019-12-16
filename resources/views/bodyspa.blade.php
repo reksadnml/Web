@@ -1,35 +1,74 @@
 @extends('index')
 @section('content')
-<h2>BodySpa</h2>
-<table class="table">
+@if(session('sukses'))
+<div class="alert alert-success" role="alert">
+  {{session('sukses')}}
+</div>
+@endif
+<h2>Body Spa</h2>
+<table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nama Paket</th>
       <th scope="col">Deskripsi</th>
       <th scope="col">Harga</th>
+      <th>Aksi</th>
     </tr>
+    @foreach($data_bodyspa as $bodyspa)
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Paket Wisuda</td>
-      <td>Make up, wardrop, and hair styling</td>
-      <td>1.000.000</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Paket Nikahan</td>
-      <td>Make up, wardrop, and hair styling</td>
-      <td>50.000.000</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Paket Lamaran</td>
-      <td>Make up, wardrop, and hair styling</td>
-      <td>25.0000.000</td>
+      <td>{{$loop->iteration}}</td>
+      <td>{{$bodyspa->nama_paket}}</td>
+      <td>{{$bodyspa->deskripsi}}</td>
+      <td>{{$bodyspa->harga}}</td>
+      <td>
+      <a href="/bodyspa/{{$bodyspa->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+      <a href="/bodyspa/{{$bodyspa->id}}/delete" class="btn btn-danger btn-sm " onclick= "return confirm ('Yakin mau dihapus?')">Delete</a>
+      </td>
     </tr>
   </tbody>
+  @endforeach
 </table>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Tambah Data
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <form action= "/bodyspa/store" method="POST"  >
+            @csrf
+            @method('POST')
 
+            
+        <div class="form-group">
+          <label for="exampleInputtext1">Nama Paket</label>
+          <input name="nama_paket" type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" placeholder="Nama Paket">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Deskripsi</label>
+          <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi paket" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputtext1">Harga</label>
+          <input name="harga" type="number" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" placeholder="Harga">
+        </div>
+            </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection

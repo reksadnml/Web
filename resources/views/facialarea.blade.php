@@ -5,7 +5,7 @@
   {{session('sukses')}}
 </div>
 @endif
-<h2>Haircut</h2>
+<h2>Facial Area</h2>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -15,17 +15,17 @@
       <th scope="col">Harga</th>
       <th>Aksi</th>
     </tr>
-    @foreach($data_haircut as $haircut)
+    @foreach($data_facialarea as $facialarea)
   </thead>
   <tbody>
     <tr>
       <td>{{$loop->iteration}}</td>
-      <td>{{$haircut->nama_paket}}</td>
-      <td>{{$haircut->deskripsi}}</td>
-      <td>{{$haircut->harga}}</td>
+      <td>{{$facialarea->nama_paket}}</td>
+      <td>{{$facialarea->deskripsi}}</td>
+      <td>{{$facialarea->harga}}</td>
       <td>
-      <a href="/haircut/{{$haircut->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-      <a href="/haircut/{{$haircut->id}}/delete" class="btn btn-danger btn-sm " onclick= "return confirm ('Yakin mau dihapus?')">Delete</a>
+      <a href="/facialarea/{{$facialarea->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+      <a href="/facialarea/{{$facialarea->id}}/delete" class="btn btn-danger btn-sm " onclick= "return confirm ('Yakin mau dihapus?')">Delete</a>
       </td>
     </tr>
   </tbody>
@@ -45,7 +45,7 @@
               </button>
             </div>
             <div class="modal-body">
-            <form action= "/haircut/store" method="POST"  >
+            <form action= "/facialarea/store" method="POST"  >
             @csrf
             @method('POST')
 
